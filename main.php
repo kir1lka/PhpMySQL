@@ -31,6 +31,7 @@ $goods = mysqli_fetch_all($goods); //возращает все строчки в
                 <th>Название</th>
                 <th>Описание</th>
                 <th>Цена</th>
+                <th>&#9998;</th>
             </tr>
             <!-- <?php
                     // foreach ($goods as $item) {
@@ -53,12 +54,16 @@ $goods = mysqli_fetch_all($goods); //возращает все строчки в
                     <td><?php echo $item[1] ?></td>
                     <td><?php echo $item[2] ?></td>
                     <td> <?php echo $item[3] ?></td>
+                    <td> <a href="update.php?id=<?php echo $item[0] ?>">Обновить</a></td>
                 </tr>
             <?php
             }
             ?>
         </table>
-        <h2>Добавить новый товар</h2>
+
+        <a href="create.php"><button>Добавить</button></a>
+
+        <!-- <h2>Добавить новый товар</h2>
         <form action="vendor/create.php" method="post">
             <p>Название</p>
             <input type="text" name="title">
@@ -67,7 +72,7 @@ $goods = mysqli_fetch_all($goods); //возращает все строчки в
             <p>Цена</p>
             <input type="number" name="price">
             <button type="submit">Добавить</button>
-        </form>
+        </form> -->
     </div>
 
 </body>
