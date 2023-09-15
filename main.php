@@ -13,7 +13,6 @@ $goods = mysqli_fetch_all($goods); //возращает все строчки в
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
