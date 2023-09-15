@@ -1,7 +1,16 @@
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 * {
     font-family: sans-serif;
     box-sizing: border-box;
   }
+
+
   th, td {
     font-size: 18px;
     padding: 10px;
