@@ -39,7 +39,7 @@ buttonOpenEdit.addEventListener("click", handleClickOpenPopupEdit);
 buttonCloseEdit.addEventListener("click", handleClickClosePopupEdit);
 
 /////////////////////////edit
-//const
+//жуткий говнокод
 document.addEventListener("DOMContentLoaded", function () {
   const editButtons = document.querySelectorAll(".button-edit");
 
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const editPopup = document.getElementById("editPopup");
       const user = document.querySelector(`[data-id="${userId}"]`);
 
-      // Populate the form fields with user data
       editPopup.querySelector('input[name="id"]').value =
         user.getAttribute("data-id");
       editPopup.querySelector('input[name="name"]').value =
@@ -74,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
       editPopup.querySelector('input[name="password"]').value =
         user.getAttribute("data-password");
 
-      // Display the edit popup
       document.getElementById("editPopupBg").style.display = "inline";
       editPopup.style.display = "inline";
     }
