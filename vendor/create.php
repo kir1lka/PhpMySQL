@@ -1,15 +1,18 @@
 <?php
 require_once("./../config/connect.php");
 
-// проверка
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+$name = $_POST["name"];
+$surname = $_POST["surname"];
+$patronymic = $_POST["patronymic"];
+$email = $_POST["email"];
+$country = $_POST["country"];
+$city = $_POST["city"];
+$login = $_POST["login"];
+$password = $_POST["password"];
 
-$title = $_POST["title"];
-$description = $_POST["description"];
-$price = $_POST["price"];
 
-mysqli_query($connect, "INSERT INTO `goods` (`id`, `title`, `description`, `price`) VALUES (NULL,'$title', '$description', '$price')");
+// mysqli_query($connect, "INSERT INTO `goods` (`id`, `title`, `description`, `price`) VALUES (NULL,'$title', '$description', '$price')");
 
-header('Location: ../main.php');
+mysqli_query($connect, "INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `email`, `country`, `city`, `login`, `password`) VALUES (NULL, '$name', '$surname', '$patronymic', '$email', '$country', '$city', '$login', '$password');");
+
+header('Location: ../index.php');

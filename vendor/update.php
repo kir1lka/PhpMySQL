@@ -1,16 +1,16 @@
 <?php
 require_once("./../config/connect.php");
 
-// проверка
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-
 $id = $_POST["id"];
-$title = $_POST["title"];
-$description = $_POST["description"];
-$price = $_POST["price"];
+$name = $_POST["name"];
+$surname = $_POST["surname"];
+$patronymic = $_POST["patronymic"];
+$email = $_POST["email"];
+$country = $_POST["country"];
+$city = $_POST["city"];
+$login = $_POST["login"];
+$password = $_POST["password"];
 
-mysqli_query($connect, "UPDATE `goods` SET `title` = '$title', `description` = '$description', `price` = '$price' WHERE `goods`.`id` = '$id'");
+mysqli_query($connect, "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `patronymic` = '$patronymic', `email` = '$email', `country` = '$country', `city` = '$city', `login` = '$login', `password` = '$password' WHERE `users`.`id` = '$id'");
 
-header('Location: ../main.php');
+header('Location: ../index.php');
