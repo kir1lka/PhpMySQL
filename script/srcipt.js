@@ -17,6 +17,3 @@ function handleClickClosePopup() {
 // events
 buttonOpen.addEventListener("click", handleClickOpenPopup);
 buttonClose.addEventListener("click", handleClickClosePopup);
-
-const buttonOpenEdit = document.querySelectorAll(".button-edit");
-const buttonCloseEdit = document.querySelectorAll(".edit-popup .svg_close");
