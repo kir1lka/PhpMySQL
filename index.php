@@ -1,8 +1,14 @@
 <?php
 require "./config/connect.php";
 $users = mysqli_query($connect, "SELECT * FROM `users`");
-
 $users = mysqli_fetch_all($users);
+
+if (isset($_GET['id'])) {
+    $users_id = $_GET['id'];
+    $user = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`='$users_id';");
+    $user = mysqli_fetch_assoc($user);
+}
+
 ?>
 
 <!-- html -->
@@ -61,7 +67,8 @@ $users = mysqli_fetch_all($users);
                     <td> <?php echo $user[6] ?></td>
                     <td> <?php echo $user[7] ?></td>
                     <td> <?php echo $user[8] ?></td>
-                    <td> <a href="update.php?id=<?php echo $user[0] ?>" class="button-edit">Редактировать</a></td>
+                    <!-- <td> <a href="update.php?id=<?php echo $user[0] ?>" class="button-edit">Редактировать</a></td> -->
+                    <td> <a href="#" class="button-edit" data-id="<?php echo $user[0] ?>" data-name="<?php echo $user[1] ?>" data-surname="<?php echo $user[2] ?>" data-patronymic="<?php echo $user[3] ?>" data-email="<?php echo $user[4] ?>" data-country="<?php echo $user[5] ?>" data-city="<?php echo $user[6] ?>" data-login="<?php echo $user[7] ?>" data-password="<?php echo $user[8] ?>">Редактировать</a></td>
                     <td> <a href="vendor/delete.php?id=<?php echo $user[0] ?>" class="button-delete">Удалить</a></td>
                 </tr>
             <?php
@@ -124,6 +131,60 @@ $users = mysqli_fetch_all($users);
             </form>
         </div>
     </div>
+
+    <div id="editPopupBg" class="popup_bg">
+        <div id="editPopup" class="popup">
+
+            <!-- closeIcon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25px" height="25px" id="svg_close_edit" class="svg_close close-popup">
+                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
+            </svg>
+
+            <!-- wrapperTop -->
+            <div class="wrapper-top">
+
+                <h2 class="title-popup2">Редактирование пользователя</h2>
+            </div>
+            <form action="vendor/update.php" method="post">
+
+                <div class="wrapper_popup">
+
+                    <!-- leftWrapper -->
+                    <div class="left_wrapper">
+                        <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+                        <p>Имя</p>
+                        <input type="text" name="name" value="<?php echo $user['name'] ?>">
+                        <p>Фамилия</p>
+                        <input type="text" name="surname" value="<?php echo $user['surname'] ?>">
+                        <p>отчество</p>
+                        <input type="text" name="patronymic" value="<?php echo $user['patronymic'] ?>">
+                        <p>Почта</p>
+                        <input type="text" name="email" value="<?php echo $user['email'] ?>">
+                    </div>
+
+
+                    <!-- rightWrapper -->
+                    <div class="right_wrapper">
+                        <p>Страна</p>
+                        <input type="text" name="country" value="<?php echo $user['country'] ?>">
+                        <p>Город</p>
+                        <input type="text" name="city" value="<?php echo $user['city'] ?>">
+                        <p>Логин</p>
+                        <input type="text" name="login" value="<?php echo $user['login'] ?>">
+                        <p>Пароль</p>
+                        <input type="text" name="password" value="<?php echo $user['password'] ?>">
+                    </div>
+                </div>
+
+                <!-- wrapperBtn -->
+                <div class="wrapper_btn">
+                    <!-- submit -->
+                    <button type="submit" class="buttonOpen">Обновить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 </html>
